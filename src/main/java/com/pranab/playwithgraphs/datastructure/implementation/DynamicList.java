@@ -3,8 +3,10 @@ package com.pranab.playwithgraphs.datastructure.implementation;
 import java.util.function.Consumer;
 
 import com.pranab.playwithgraphs.datastructure.LinkedList;
+import com.pranab.playwithgraphs.datastructure.Queue;
+import com.pranab.playwithgraphs.datastructure.Stack;
 
-public class DynamicList<V> implements LinkedList<V> {
+public class DynamicList<V> implements LinkedList<V>,Queue<V>,Stack<V> {
 
 	private DoubleEndedNode<V> start;
 	private DoubleEndedNode<V> end;
@@ -88,6 +90,42 @@ public class DynamicList<V> implements LinkedList<V> {
 	@Override
 	public int size() {
 		return size;
+	}
+
+	@Override
+	public void enqueue(V value) {
+		addFirst(value);
+	}
+
+	@Override
+	public V dequeue() {		
+		return removeLast();
+	}
+
+	@Override
+	public V peep() {
+		if(end==null) {
+			return null;
+		}
+		return end.getValue(); 		
+	}
+
+	@Override
+	public void push(V value) {
+		addFirst(value);		
+	}
+
+	@Override
+	public V pop() {
+		return removeFirst();
+	}
+
+	@Override
+	public V peek() {
+		if(start==null) {
+			return null;
+		}
+		return start.getValue(); 	
 	}
 
 }

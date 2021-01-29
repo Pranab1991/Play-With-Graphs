@@ -1,8 +1,6 @@
 package com.pranab.playwithgraphs.datastructure;
 
-import java.util.function.Consumer;
-
-public interface LinkedList<V> {
+public interface LinkedList<V> extends List<V>{
 	 
 	void addFirst(V value);
 
@@ -11,8 +9,4 @@ public interface LinkedList<V> {
 	V removeFirst();
 	
 	V removeLast();
-	
-	void iterate(Consumer<V> function);
-	
-	int size();
 }
