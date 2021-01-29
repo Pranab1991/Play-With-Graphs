@@ -2,6 +2,8 @@ package com.pranab.playwithgraphs.datastructure;
 
 import java.util.function.Consumer;
 
+import com.pranab.playwithgraphs.datastructure.implementation.HeapNode;
+
 public interface MinPriorityHeap<K extends Comparable<K>, V> {
 
 	V extractMin();

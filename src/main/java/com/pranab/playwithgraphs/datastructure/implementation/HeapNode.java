@@ -1,4 +1,4 @@
-package com.pranab.playwithgraphs.datastructure;
+package com.pranab.playwithgraphs.datastructure.implementation;
 
 public class HeapNode<K extends Comparable<K>,V> implements Cloneable {
 

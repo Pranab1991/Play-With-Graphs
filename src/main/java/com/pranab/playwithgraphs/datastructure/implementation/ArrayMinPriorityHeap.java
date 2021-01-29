@@ -1,8 +1,10 @@
-package com.pranab.playwithgraphs.datastructure;
+package com.pranab.playwithgraphs.datastructure.implementation;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+
+import com.pranab.playwithgraphs.datastructure.MinPriorityHeap;
 
 public class ArrayMinPriorityHeap<K extends Comparable<K>, V> implements MinPriorityHeap<K, V> {
 

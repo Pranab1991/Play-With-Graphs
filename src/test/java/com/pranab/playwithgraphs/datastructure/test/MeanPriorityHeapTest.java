@@ -16,7 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.pranab.playwithgraphs.datastructure.MinPriorityHeap;
-import com.pranab.playwithgraphs.datastructure.ArrayMinPriorityHeap;
+import com.pranab.playwithgraphs.datastructure.implementation.ArrayMinPriorityHeap;
 import com.pranab.playwithgraphs.model.Application;
 import com.pranab.playwithgraphs.model.Person;
 
