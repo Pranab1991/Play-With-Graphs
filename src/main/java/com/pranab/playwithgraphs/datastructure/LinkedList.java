@@ -9,4 +9,6 @@ public interface LinkedList<V> extends List<V>{
 	V removeFirst();
 	
 	V removeLast();
+	
+	V removeElement(V value);
 }

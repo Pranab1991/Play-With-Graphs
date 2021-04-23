@@ -98,4 +98,11 @@ class LinkedListTest {
 		 list.iterate((v)->{logger.info(v);});
 		 assertEquals(3, list.size());
 	 }
+	 
+	 @Test
+	 @Order(10)
+	 void removeElementTest() {
+		 assertAll(()->{two.equals(list.removeElement(two));},
+				   ()->{assertEquals(2, list.size());});
+	 }
 }
