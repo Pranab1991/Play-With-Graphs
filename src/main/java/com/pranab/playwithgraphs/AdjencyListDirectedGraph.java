@@ -124,7 +124,7 @@ public class AdjencyListDirectedGraph<V, K> implements DirectedGraph<V, K> {
 					extractedNode.setTraversed(true);
 					extractedNode.setLevel(level);
 					queue.enqueue(extractedNode);
-					if (includeBeforeLevel) {
+					if (includeBeforeLevel && level <= searchLevel) {
 						outputList.add(extractedNode.getValue());
 					} else {
 						if (level == searchLevel) {
@@ -250,6 +250,7 @@ public class AdjencyListDirectedGraph<V, K> implements DirectedGraph<V, K> {
 				connectedComponentLists.add(connectedComponentList);
 			}
 		}
+		resetAllNodes();
 		return connectedComponentLists;
 	}
 	
