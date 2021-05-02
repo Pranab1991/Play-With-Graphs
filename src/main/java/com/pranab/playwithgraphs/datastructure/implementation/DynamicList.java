@@ -80,7 +80,7 @@ public class DynamicList<V> implements LinkedList<V>, Queue<V>, Stack<V> {
 	}
 
 	@Override
-	public void iterate(Consumer<V> function) {
+	public void functionalIterate(Consumer<V> function) {
 		DoubleEndedNode<V> traverser = start;
 		while (traverser != null) {
 			function.accept(traverser.getValue());
@@ -202,6 +202,20 @@ public class DynamicList<V> implements LinkedList<V>, Queue<V>, Stack<V> {
 			return value;
 		}
 		
+	}
+
+	@Override
+	public V search(V searchObj) {
+		DoubleEndedNode<V> temp=start;
+		V result=null;
+		while(temp!=null) {
+			if(temp.getValue().equals(searchObj)) {
+			 result=temp.getValue();
+			 break;
+			}
+			temp=temp.getNext();
+		}
+		return result;
 	}
 
 }

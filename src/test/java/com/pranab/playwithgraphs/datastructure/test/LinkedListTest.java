@@ -95,7 +95,7 @@ class LinkedListTest {
 		 list.addLast(one);
 		 list.addLast(two);
 		 list.addLast(three);
-		 list.iterate((v)->{logger.info(v);});
+		 list.functionalIterate((v)->{logger.info(v);});
 		 assertEquals(3, list.size());
 	 }
 	 

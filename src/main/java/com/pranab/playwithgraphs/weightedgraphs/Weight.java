@@ -1,4 +1,4 @@
-package com.pranab.playwithgraphs;
+package com.pranab.playwithgraphs.weightedgraphs;
 
 @FunctionalInterface
 public interface Weight {

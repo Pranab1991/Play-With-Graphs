@@ -16,9 +16,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
-
-import com.pranab.playwithgraphs.AdjencyListDirectedGraph;
 import com.pranab.playwithgraphs.model.MCUCharecter;
+import com.pranab.playwithgraphs.unweightedgraphs.directed.AdjencyListDirectedGraph;
 
 @TestMethodOrder(OrderAnnotation.class)
 public class AdjacencyListDirectedGraphTest {

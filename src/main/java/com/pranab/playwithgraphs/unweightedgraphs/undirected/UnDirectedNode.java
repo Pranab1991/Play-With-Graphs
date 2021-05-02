@@ -1,4 +1,6 @@
-package com.pranab.playwithgraphs;
+package com.pranab.playwithgraphs.unweightedgraphs.undirected;
+
+import com.pranab.playwithgraphs.unweightedgraphs.Node;
 
 public class UnDirectedNode<V,K> extends Node<V,K>{
 

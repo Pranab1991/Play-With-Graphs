@@ -1,7 +1,9 @@
-package com.pranab.playwithgraphs;
+package com.pranab.playwithgraphs.unweightedgraphs.directed;
 
+import com.pranab.playwithgraphs.Edge;
 import com.pranab.playwithgraphs.datastructure.LinkedList;
 import com.pranab.playwithgraphs.datastructure.implementation.DynamicList;
+import com.pranab.playwithgraphs.unweightedgraphs.Node;
 
 public class DirectedNode<V,K> extends Node<V,K>{
 

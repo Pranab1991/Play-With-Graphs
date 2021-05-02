@@ -1,9 +1,11 @@
-package com.pranab.playwithgraphs;
+package com.pranab.playwithgraphs.unweightedgraphs.undirected;
 
 import java.util.List;
 import java.util.Queue;
 
-public interface UnDirectedGraph<V, K> extends Graph<V, K> {
+import com.pranab.playwithgraphs.unweightedgraphs.UnWeightedGraph;
+
+public interface UnDirectedGraph<V, K> extends UnWeightedGraph<V, K> {
 
 	List<V> searchLevel(K startingKeyPoint, int searchLevel, boolean includeBeforeLevel);
 

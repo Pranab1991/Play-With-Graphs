@@ -13,9 +13,9 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
-import com.pranab.playwithgraphs.AdjencyListUnDirectedGraph;
 import com.pranab.playwithgraphs.model.Profile;
 import com.pranab.playwithgraphs.model.ToonCharecters;
+import com.pranab.playwithgraphs.unweightedgraphs.undirected.AdjencyListUnDirectedGraph;
 
 @TestMethodOrder(OrderAnnotation.class)
 public class AdjacencyListUnDirectedGraphTest {

@@ -12,9 +12,6 @@ public interface Graph<V,K> {
 	
 	V getValue(K key);
 	
-	void createEdge(K sourceNodeKey,K targetNodeKey);
-	
-	void createEdges(K sourceNodeKey,List<K> targetNodeKeys);
 	
 	void removeEdge(K sourceNodeKey,K targetNodeKey);
 	
