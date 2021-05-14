@@ -16,6 +16,10 @@ public class WeightedEdge<K,W extends Weight> extends Edge<K> {
 
 	public WeightedEdge() {
 		super();
+	}	
+	
+	public WeightedEdge(K keyPointingNode) {
+		super(keyPointingNode);
 	}
 
 	public WeightedEdge(K keyPointingNode,W weights) {

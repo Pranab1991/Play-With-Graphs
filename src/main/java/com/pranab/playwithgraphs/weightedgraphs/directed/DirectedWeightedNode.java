@@ -9,6 +9,7 @@ import com.pranab.playwithgraphs.weightedgraphs.WeightedNode;
 public class DirectedWeightedNode<V, K, W extends Weight> extends WeightedNode<V, K, W> {
 
 	private K prevPointer;
+	private int score=-1;
 	private int level;
 	private LinkedList<WeightedEdge<K, W>> inComingEdges=new DynamicList<>();
 	
@@ -43,4 +44,13 @@ public class DirectedWeightedNode<V, K, W extends Weight> extends WeightedNode<V
 	public DirectedWeightedNode(V value) {
 		super(value);
 	}
+	
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
 }

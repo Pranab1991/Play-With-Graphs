@@ -42,7 +42,11 @@ public class AdjencyListDirectedGraph<V, K> implements DirectedGraph<V, K> {
 
 	@Override
 	public V getValue(K key) {
-		return storage.get(key).getValue();
+		if(storage.containsKey(key)) {
+			return storage.get(key).getValue();
+		}else {
+			return null;
+		}
 	}
 	
 	@Override
@@ -80,9 +84,16 @@ public class AdjencyListDirectedGraph<V, K> implements DirectedGraph<V, K> {
 
 	@Override
 	public void removeEdge(K sourceNodeKey, K targetNodeKey) {
+		if ((!storage.containsKey(targetNodeKey)) || (!storage.containsKey(sourceNodeKey))) {
+			throw new UnsupportedOperationException("Key not found");
+		}
 		DirectedNode<V, K> sourceNode = storage.get(sourceNodeKey);
 		LinkedList<Edge<K>> edgeList = sourceNode.getOutGoingEdges();
 		edgeList.removeElement(new Edge<>(targetNodeKey));
+		
+		DirectedNode<V, K> inSourceNode = storage.get(targetNodeKey);
+		LinkedList<Edge<K>> inEdgeList = inSourceNode.getInComingEdges();
+		inEdgeList.removeElement(new Edge<>(sourceNodeKey));
 	}
 
 	@Override
@@ -95,7 +106,9 @@ public class AdjencyListDirectedGraph<V, K> implements DirectedGraph<V, K> {
 	@Override
 	public void removeAllEdges(K sourceNodeKey) {
 		DirectedNode<V, K> sourceNode = storage.get(sourceNodeKey);
-		sourceNode.getOutGoingEdges().clear();
+		for(Edge<K> edge:sourceNode.getOutGoingEdges()) {
+			removeEdge(sourceNodeKey,edge.getKeyPointingNode());
+		}
 	}
 
 	@Override

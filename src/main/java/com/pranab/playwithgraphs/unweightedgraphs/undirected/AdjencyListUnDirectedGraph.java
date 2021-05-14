@@ -40,7 +40,11 @@ public class AdjencyListUnDirectedGraph<V, K> implements UnDirectedGraph<V, K> {
 
 	@Override
 	public V getValue(K key) {
-		return storage.get(key).getValue();
+		if(storage.containsKey(key)) {
+			return storage.get(key).getValue();
+		}else {
+			return null;
+		}
 	}
 
 	@Override
@@ -68,6 +72,9 @@ public class AdjencyListUnDirectedGraph<V, K> implements UnDirectedGraph<V, K> {
 
 	@Override
 	public void removeEdge(K sourceNodeKey, K targetNodeKey) {
+		if ((!storage.containsKey(targetNodeKey)) || (!storage.containsKey(sourceNodeKey))) {
+			throw new UnsupportedOperationException("Key not found");
+		}
 		UnDirectedNode<V, K> sourceNode = storage.get(sourceNodeKey);
 		LinkedList<Edge<K>> edgeList = sourceNode.getOutGoingEdges();
 		edgeList.removeElement(new Edge<>(targetNodeKey));
@@ -106,6 +113,8 @@ public class AdjencyListUnDirectedGraph<V, K> implements UnDirectedGraph<V, K> {
 	public void resetAllNodes() {
 		for (UnDirectedNode<V, K> node : storage.values()) {
 			node.setTraversed(false);
+			node.setLevel(0);
+			node.setPrevPointer(null);
 		}
 	}
 
