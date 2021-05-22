@@ -8,7 +8,16 @@ public class UnDirectedWeightedNode<V, K, W extends Weight> extends WeightedNode
 	private K prevPointer;
 	private int level;
 	private int score=-1;
+	private int mstScoreHolder=Integer.MAX_VALUE;
 	
+	public int getMstScoreHolder() {
+		return mstScoreHolder;
+	}
+
+	public void setMstScoreHolder(int mstScoreHolder) {
+		this.mstScoreHolder = mstScoreHolder;
+	}
+
 	public UnDirectedWeightedNode() {
 		super();
 	}

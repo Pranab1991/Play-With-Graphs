@@ -1,6 +1,7 @@
 .project
 .classpath
 bin/
+doc/
 target/
 .settings
 .sts4-cache

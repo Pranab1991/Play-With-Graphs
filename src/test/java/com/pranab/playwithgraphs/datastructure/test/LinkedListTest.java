@@ -105,4 +105,18 @@ class LinkedListTest {
 		 assertAll(()->{two.equals(list.removeElement(two));},
 				   ()->{assertEquals(2, list.size());});
 	 }
+	 
+	 @Test
+	 @Order(11)
+	 void getFirstTest() {
+		 assertAll(()->{one.equals(list.getFirst().get());},
+				   ()->{assertEquals(2, list.size());});
+	 }
+	 
+	 @Test
+	 @Order(12)
+	 void getLastTest() {
+		 assertAll(()->{three.equals(list.getLast().get());},
+				   ()->{assertEquals(2, list.size());});
+	 }
 }

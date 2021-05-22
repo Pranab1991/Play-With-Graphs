@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
 
 import com.pranab.playwithgraphs.Edge;
 import com.pranab.playwithgraphs.datastructure.LinkedList;
@@ -243,6 +244,28 @@ public class AdjancencyListUnDirectedWeightedGraph<V, K, W extends Weight> imple
 		resetAllNodes();
 		return clusterList;
 	}
+	
+	@Override
+	public List<K> findClusters(Predicate<W> predicate) {
+		List<K> connectedComponentList=null;
+		for(K key:storage.keySet()) {
+			UnDirectedWeightedNode<V, K, W> node=storage.get(key);
+			if(!node.isTraversed()) {
+				connectedComponentList=new ArrayList<>();
+				doDepthFirstSearch(key,connectedComponentList);
+				if(storage.get((connectedComponentList.get(0))).getOutGoingEdges().getFirst().isPresent()) {
+					WeightedEdge<K, W> weight=storage.get((connectedComponentList.get(0))).getOutGoingEdges().getFirst().get();
+					if(weight.qureyIfPresent(predicate)) {
+						break;
+					}else {
+						connectedComponentList=null;
+					}
+				}
+			}
+		}
+		resetAllNodes();
+		return connectedComponentList;
+	}
 
 	private void doDepthFirstSearch(K lookUpKey,List<K> list) {
 		UnDirectedWeightedNode<V, K, W> sourceNode=storage.get(lookUpKey);
@@ -255,6 +278,40 @@ public class AdjancencyListUnDirectedWeightedGraph<V, K, W extends Weight> imple
 			doDepthFirstSearch(edge.getKeyPointingNode(),list);
 		}
 		list.add(lookUpKey);
+	}
+
+
+	@Override
+	public java.util.List<SpanningEdge<K>> minimumSpaningTree() {
+		K startingKeyPoint=(K)storage.keySet().toArray()[0];
+		MinPriorityHeap<Integer, K> minHeap = new ArrayMinPriorityHeap<>();
+		minHeap.insert(0, startingKeyPoint);
+		java.util.List<SpanningEdge<K>> output=new java.util.ArrayList<>();
+		while (minHeap.size() != 0) {
+			K key = minHeap.extractMin();
+			UnDirectedWeightedNode<V, K, W> minNode = storage.get(key);
+			output.add(new SpanningEdge<>(minNode.getPrevPointer(), key, minNode.getMstScoreHolder()));
+			minNode.setTraversed(true);
+			for (WeightedEdge<K,W> edge : minNode.getOutGoingEdges()) {
+				UnDirectedWeightedNode<V, K, W> toBeProcessed = storage.get(edge.getKeyPointingNode());
+				if (!toBeProcessed.isTraversed()) {
+					int score = edge.getWeights().getWeight();
+					if (toBeProcessed.getMstScoreHolder() == Integer.MAX_VALUE) {
+						toBeProcessed.setMstScoreHolder(score);
+						toBeProcessed.setPrevPointer(key);
+						minHeap.insert(score, edge.getKeyPointingNode());
+					} else if (score < toBeProcessed.getMstScoreHolder()) {
+						int indexKey = toBeProcessed.getMstScoreHolder();
+						toBeProcessed.setMstScoreHolder(score);
+						toBeProcessed.setPrevPointer(key);
+						minHeap.increasePriority(minHeap.getIndex(indexKey), score);
+					}
+				}
+			}
+		}
+		resetAllNodes();
+		output.get(0).setScore(0);
+		return output;
 	}
 
 }

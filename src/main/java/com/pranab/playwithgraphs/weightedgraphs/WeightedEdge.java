@@ -1,5 +1,7 @@
 package com.pranab.playwithgraphs.weightedgraphs;
 
+import java.util.function.Predicate;
+
 import com.pranab.playwithgraphs.Edge;
 
 public class WeightedEdge<K,W extends Weight> extends Edge<K> {
@@ -27,5 +29,8 @@ public class WeightedEdge<K,W extends Weight> extends Edge<K> {
 		this.weights = weights;
 	}
 	
-	
+
+	public boolean qureyIfPresent(Predicate<W> predicate) {
+		return predicate.test(this.getWeights());
+	}
 }

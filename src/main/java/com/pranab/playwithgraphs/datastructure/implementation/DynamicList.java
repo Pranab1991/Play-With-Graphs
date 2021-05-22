@@ -1,6 +1,7 @@
 package com.pranab.playwithgraphs.datastructure.implementation;
 
 import java.util.Iterator;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import com.pranab.playwithgraphs.datastructure.LinkedList;
@@ -216,6 +217,22 @@ public class DynamicList<V> implements LinkedList<V>, Queue<V>, Stack<V> {
 			temp=temp.getNext();
 		}
 		return result;
+	}
+
+	@Override
+	public Optional<V> getFirst() {
+		if(start==null) {
+			return Optional.empty();
+		}
+		return Optional.ofNullable(start.getValue());
+	}
+
+	@Override
+	public Optional<V> getLast() {
+		if(end==null) {
+			return Optional.empty();
+		}
+		return Optional.ofNullable(end.getValue());
 	}
 
 }
