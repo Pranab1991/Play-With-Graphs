@@ -4,10 +4,10 @@ import java.util.List;
 
 /**
  * An Object that helps in realization of data in Vertex Edge(Graph) format.
- * Vertex : The entity that is to be related with another entity.
- * Edge : Relationship between the entities.
- * Graph Definition: A set of items connected by edges. Each item is called a vertex or node.
- * Formally, a graph is a set of vertices and a binary relation between vertices, adjacency. 
+ * <p>Vertex : The entity that is to be related with another entity.</p>
+ * <p>Edge : Relationship between the entities.</p>
+ * <p>Graph Definition: A set of items connected by edges. Each item is called a vertex or node.
+ * Formally, a graph is a set of vertices and a binary relation between vertices, adjacency. </p>
  * @author Pranab Bharadwaj
  *
  * @param <V> The relational entity type, that will be used as vertex in vertex-edge mapping ,  

@@ -1,6 +1,7 @@
 .project
 .classpath
 bin/
+diagrams/rough/
 doc/
 target/
 .settings
