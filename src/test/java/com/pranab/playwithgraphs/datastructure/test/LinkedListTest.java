@@ -119,4 +119,30 @@ class LinkedListTest {
 		 assertAll(()->{three.equals(list.getLast().get());},
 				   ()->{assertEquals(2, list.size());});
 	 }
+	 
+	 @Test
+	 void removeIndexTest() {
+		 LinkedList<String> testList=new DynamicList<>();
+		 testList.addFirst("One");
+		 testList.addFirst("Two");
+		 testList.addFirst("Three");
+		 testList.addFirst("Four");
+		 testList.addFirst("Five");
+		 assertAll(()->{assertEquals(5, testList.size());},
+				 ()->{assertEquals("Two", testList.removeIndex(3));},
+				 ()->{assertEquals(4, testList.size());});
+	 }
+	 
+	 @Test
+	 void getMethodTest() {
+		 LinkedList<String> testList=new DynamicList<>();
+		 testList.addFirst("One");
+		 testList.addFirst("Two");
+		 testList.addFirst("Three");
+		 testList.addFirst("Four");
+		 testList.addFirst("Five");
+		 assertAll(()->{assertEquals("Four", testList.get(1));},
+				 ()->{assertEquals("Two", testList.get(3));},
+				 ()->{assertEquals(5, testList.size());});
+	 }
 }

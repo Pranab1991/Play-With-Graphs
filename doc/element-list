@@ -1,0 +1,12 @@
+com.pranab.playwithgraphs
+com.pranab.playwithgraphs.datastructure
+com.pranab.playwithgraphs.datastructure.implementation
+com.pranab.playwithgraphs.datastructure.test
+com.pranab.playwithgraphs.model
+com.pranab.playwithgraphs.test
+com.pranab.playwithgraphs.unweightedgraphs
+com.pranab.playwithgraphs.unweightedgraphs.directed
+com.pranab.playwithgraphs.unweightedgraphs.undirected
+com.pranab.playwithgraphs.weightedgraphs
+com.pranab.playwithgraphs.weightedgraphs.directed
+com.pranab.playwithgraphs.weightedgraphs.undirected

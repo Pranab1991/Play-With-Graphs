@@ -113,7 +113,7 @@ class MeanPriorityHeapTest {
 	@Order(5)
 	void increasePriorityTest() {
 		String initialMin=minIntHeap.peek();
-		int index=minIntHeap.getIndex(10);
+		int index=minIntHeap.getIndex(10, "Ten");
 		minIntHeap.increasePriority(index, 0);
 		String currentMin=minIntHeap.peek();
 		assertAll(()->{assertEquals(currentMin,minIntHeap.extractMin());},

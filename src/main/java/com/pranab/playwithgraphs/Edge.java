@@ -1,13 +1,27 @@
 package com.pranab.playwithgraphs;
 
+/**
+ * Represents the relationship between Two nodes 
+ * @author Pranab Bharadwaj
+ *
+ * @param <K> The type of entity identifier(Key) the Edge is going to encapsulate while establishing an relationship
+ */
 public class Edge<K> {
 
 	private K keyPointingNode;
 
+	/**
+	 * get the target key, which with source key makes the edge between nodes.
+	 * @return the target key.
+	 */
 	public K getKeyPointingNode() {
 		return keyPointingNode;
 	}
 
+	/**
+	 * set the target key, which with source key makes the edge between nodes.
+	 * @param keyPointingNode - unique identifier(key) of the target node
+	 */
 	public void setKeyPointingNode(K keyPointingNode) {
 		this.keyPointingNode = keyPointingNode;
 	}
