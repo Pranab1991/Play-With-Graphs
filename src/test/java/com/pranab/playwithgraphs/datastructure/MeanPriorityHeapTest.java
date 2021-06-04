@@ -1,4 +1,4 @@
-package com.pranab.playwithgraphs.datastructure.test;
+package com.pranab.playwithgraphs.datastructure;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;

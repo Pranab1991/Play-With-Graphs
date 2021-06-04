@@ -1,4 +1,4 @@
-package com.pranab.playwithgraphs.test;
+package com.pranab.playwithgraphs;
 
 import org.junit.jupiter.api.TestMethodOrder;
 
