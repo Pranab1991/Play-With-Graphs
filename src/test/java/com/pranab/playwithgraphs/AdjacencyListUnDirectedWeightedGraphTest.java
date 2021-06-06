@@ -396,32 +396,47 @@ class AdjacencyListUnDirectedWeightedGraphTest {
 	@Test
 	void testMinimumSpaningTree() {
 		AdjancencyListUnDirectedWeightedGraph<String, String, Distance> storage = new AdjancencyListUnDirectedWeightedGraph<>();
-		storage.createNode("hospital", "Hospital");
-		storage.createNode("collectorOffice", "Collector Office");
-		storage.createNode("fireStation", "Fire Station");
-		storage.createNode("court", "Court");
-		storage.createNode("policeStation", "Police Station");
-		storage.createNode("college", "College");
-		storage.createNode("bank", "Bank");
+		storage.createNode("girlhostel", "Girl's Hostel");
+		storage.createNode("electrical","Electrical and Electronics Block");
+		storage.createNode("civil", "Civil Block");
+		storage.createNode("mechanical", "Mechanical Block");
+		storage.createNode("admin", "Administrative Block and Library");
+		storage.createNode("boyshostel", "Boy's Hostel");
+		storage.createNode("computer", "Computer Science and IT block");
 		
-		storage.createEdge("hospital", "fireStation", new Distance(1));
-		storage.createEdge("fireStation", "court", new Distance(2));
-		storage.createEdge("hospital", "collectorOffice", new Distance(1));
-		storage.createEdge("collectorOffice", "court", new Distance(2));
-		storage.createEdge("hospital", "court", new Distance(4));
-		storage.createEdge("court", "policeStation", new Distance(3));
-		storage.createEdge("policeStation", "college", new Distance(2));
-		storage.createEdge("college", "bank", new Distance(1));
-		storage.createEdge("court", "college", new Distance(4));
+		storage.createEdge("girlhostel", "electrical", new Distance(1));
+		storage.createEdge("electrical", "mechanical", new Distance(2));
+		storage.createEdge("girlhostel", "civil", new Distance(1));
+		storage.createEdge("civil", "mechanical", new Distance(2));
+		storage.createEdge("girlhostel", "mechanical", new Distance(4));
+		storage.createEdge("mechanical", "admin", new Distance(3));
+		storage.createEdge("admin", "boyshostel", new Distance(2));
+		storage.createEdge("boyshostel", "computer", new Distance(1));
+		storage.createEdge("boyshostel", "mechanical", new Distance(4));
 		
 		List<SpanningEdge<String>> paths=storage.minimumSpaningTree();
 		assertAll(()->{assertEquals(7, paths.size());},
 				()->{assertEquals(0,paths.get(0).getScore());},
 				()->{assertEquals(null,paths.get(0).getSourceKey());},
-				()->{assertEquals("policeStation",paths.get(0).getTargetKey());},
-				()->{assertEquals(2,paths.get(1).getScore());},
-				()->{assertEquals("policeStation",paths.get(1).getSourceKey());},
-				()->{assertEquals("college",paths.get(1).getTargetKey());});
+				()->{assertEquals("computer",paths.get(0).getTargetKey());},
+				()->{assertEquals(1,paths.get(1).getScore());},
+				()->{assertEquals("computer",paths.get(1).getSourceKey());},
+				()->{assertEquals("boyshostel",paths.get(1).getTargetKey());},
+				()->{assertEquals(2,paths.get(2).getScore());},
+				()->{assertEquals("boyshostel",paths.get(2).getSourceKey());},
+				()->{assertEquals("admin",paths.get(2).getTargetKey());},
+				()->{assertEquals(3,paths.get(3).getScore());},
+				()->{assertEquals("admin",paths.get(3).getSourceKey());},
+				()->{assertEquals("mechanical",paths.get(3).getTargetKey());},
+				()->{assertEquals(2,paths.get(4).getScore());},
+				()->{assertEquals("mechanical",paths.get(4).getSourceKey());},
+				()->{assertEquals("electrical",paths.get(4).getTargetKey());},
+				()->{assertEquals(1,paths.get(5).getScore());},
+				()->{assertEquals("electrical",paths.get(5).getSourceKey());},
+				()->{assertEquals("girlhostel",paths.get(5).getTargetKey());},
+				()->{assertEquals(1,paths.get(6).getScore());},
+				()->{assertEquals("girlhostel",paths.get(6).getSourceKey());},
+				()->{assertEquals("civil",paths.get(6).getTargetKey());});
 	}
 	
 	private class AnimeWeights implements Weight {
