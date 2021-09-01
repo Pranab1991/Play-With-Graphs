@@ -16,7 +16,7 @@ PlayWithGraphs has segregated the graphs into _Four_ different types, on the bas
 All four variants support CRUD operations, however, each of them exposes different querying APIs feasible for the underlying structure. There are numerous blazingly fast algorithms that can be executed on graphs resulting in desirable outcomes, however, for the current iteration/beta release few of them are implemented and are exposed through APIs.
 
 #### Example :
-Let's create a **Friendship Graph ** where each person is considered as a *Vertex/Node* of the graph and are connected to each other via *Friend Of* relationship i.e. we create an *Edge* between two-person if they are friends of each other. The below diagram depicts a simple friendship graph.
+Let's create a **Friendship Graph** where each person is considered as a *Vertex/Node* of the graph and are connected to each other via *Friend Of* relationship i.e. we create an *Edge* between two-person if they are friends of each other. The below diagram depicts a simple friendship graph.
 **Note** : Edges are bidirectional
 
 |John Doe| <--> |Jane Doe| <--> |Jack Doe|
