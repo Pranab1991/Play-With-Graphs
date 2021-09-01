@@ -3,8 +3,8 @@
 ## Introduction:
 
 <p> **Graphs** are a fundamental data structure in the world of programming, one that consists of a finite set of
-_vertices_, together with a set of undirected or directed _edges_.
-Graphs are very important in the field of computer science. They are used to model real-world systems such as _Internet_,_Maps_,_Social Networks_ _, etc._<br> **Playwithgraph** is a java library to create graph objects with customer data and analyze the data through the _APIs_ provided. This project in its entirety is augmented with _Junit test cases_ modeling real-world scenarios through the library and _Javadocs_ detailing out the intent of the _exposed APIs_</p>
+_vertices_, together with a set of undirected or directed __edges__ .
+Graphs are very important in the field of computer science. They are used to model real-world systems such as _Internet_ , _Maps_ , _Social Networks_ , etc._<br> **Playwithgraph** is a java library to create graph objects with customer data and analyze the data through the _APIs_ provided. This project in its entirety is augmented with _Junit test cases_ modeling real-world scenarios through the library and _Javadocs_ detailing out the intent of the _exposed APIs_</p>
 
 ## Getting Started:
 <p>PlayWithGraphs has segregated the graphs into _Four_ different types, on the basis of the relationship(_Edge_) between two _Nodes/Vertices.<br>
@@ -22,14 +22,14 @@ Let's create a **Friendship Graph ** where each person is considered as a *Verte
 |John Doe| <--> |Jane Doe| <--> |Jack Doe|
 
 Below code snippet depicts realization of above graph using AdjencyListUnDirectedGraph(PlayWithGraph's API to design Undirected Graph):
-'''java:
+```java:
 private static Graph<String, String> graph = new AdjencyListUnDirectedGraph<>(); // graph created with String key and Strung Value
 graph.createNode("john", "John Doe"); //creation of node
 graph.createNode("jane", "Jane Doe");'
 graph.createNode("jack", "Jack Doe");'
 graph.createEdge("john","jane"); //creation of edge between node "John Doe" and "Jane Doe"
 graph.createEdge("jane","jack");
-'''
+```
 </p>
 
 ## Documentation:
